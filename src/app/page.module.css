@@ -6,14 +6,11 @@
   --button-primary-hover: #383838;
   --button-secondary-hover: #f2f2f2;
 
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
+  min-height: 100vh;
+  position: relative;
+  background-color: #f0f0f0;
+  padding: 20px;
+  overflow-x: hidden;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -28,10 +25,14 @@
 }
 
 .main {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
+  align-items: center;
+  padding-top: 50px;
 }
 
 .main ol {
@@ -163,5 +164,119 @@ a.secondary {
 @media (prefers-color-scheme: dark) {
   .logo {
     filter: invert();
+  }
+}
+
+/* Title styles */
+.title {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  text-align: center;
+  margin-bottom: 2rem;
+  color:red;
+}
+
+/* Button container */
+.buttonContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.button {
+  padding: 10px 40px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.yesButton {
+  background-color: #4CAF50;
+}
+
+.noButton {
+  background-color: #ff4444;
+}
+
+.closeButton {
+  background-color: #4CAF50;
+  padding: 5px 10px;
+}
+
+/* Popup styles */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+.popupTitle {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, #ff69b4, #ff0000, #ff8c00, #ffff00, #8b4513);
+  background-size: 500% 500%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientFlow 5s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    padding-top: 30px;
+  }
+
+  .button {
+    padding: 8px 30px;
+    font-size: 14px;
+  }
+
+  .popup {
+    padding: 15px;
+  }
+
+  .popupTitle {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .page {
+    padding: 10px;
+  }
+
+  .button {
+    padding: 6px 20px;
+    font-size: 12px;
+  }
+}
+
+/* Animation for smooth transitions */
+@media (prefers-reduced-motion: no-preference) {
+  .button {
+    transition: all 0.3s ease;
   }
 }
