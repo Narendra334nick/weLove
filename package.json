@@ -6,10 +6,10 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "postbuild": "echo > out/.nojekyll",
     "start": "next start",
     "lint": "next lint",
-    "export": "next export",
-     "deploy": "npm run build && gh-pages -d out"
+    "deploy": "npm run build && npm run postbuild && gh-pages -d out"
   },
   "dependencies": {
     "next": "15.4.5",
