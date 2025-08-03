@@ -43,7 +43,7 @@ export default function Home() {
             onMouseOver={handleMouseMove}
             onClick={handleMouseMove}
           >
-            No
+            No No
           </button>
         </div>
 
